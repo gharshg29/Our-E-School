@@ -241,6 +241,7 @@ class _CreateAnnouncementState extends State<CreateAnnouncement> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Expanded(
+                            // ignore: deprecated_member_use
                             child: FlatButton(
                               child: Text(
                                 'EVENT',
@@ -264,6 +265,7 @@ class _CreateAnnouncementState extends State<CreateAnnouncement> {
                             ),
                           ),
                           Expanded(
+                            // ignore: deprecated_member_use
                             child: FlatButton(
                               child: Text(
                                 'CIRCULAR',
@@ -289,6 +291,7 @@ class _CreateAnnouncementState extends State<CreateAnnouncement> {
                             ),
                           ),
                           Expanded(
+                            // ignore: deprecated_member_use
                             child: FlatButton(
                               child: Text(
                                 'ACTIVITY',

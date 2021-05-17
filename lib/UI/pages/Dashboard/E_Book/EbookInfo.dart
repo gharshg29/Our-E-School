@@ -159,7 +159,7 @@ class EBookInfo extends StatelessWidget {
                         context,
                         PDFOpener(
                           title: eBook.bookName,
-                          url: eBook.pdfUrl,
+                          url: eBook.pdfUrl as Uri,
                         ),
                       ),
                       title: 'Read',
@@ -230,11 +230,10 @@ class _ReusableEbookBtn extends StatelessWidget {
         ..height(_buttonHeight)
         ..ripple(true)
         ..borderRadius(all: 8),
-      gesture: Gestures()
-        ..onTap(() => onTap()),
-        // ..onLongPress(() => onTap)
-        // ..onDoubleTap(() => onTap())
-        // ..onTapCancel(() => onTap()),
+      gesture: Gestures()..onTap(() => onTap()),
+      // ..onLongPress(() => onTap)
+      // ..onDoubleTap(() => onTap())
+      // ..onTapCancel(() => onTap()),
       child: Center(
         child: Text(
           title,

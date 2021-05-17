@@ -4,6 +4,7 @@ import 'package:ourESchool/imports.dart';
 
 class AssignmentServices extends Services {
   StorageServices _storageServices = locator<StorageServices>();
+  // ignore: avoid_init_to_null
   DocumentSnapshot lastAssignmnetSnapshot = null;
   List<DocumentSnapshot> assignmnetDocumentSnapshots =
       List.empty(growable: true);
@@ -44,7 +45,7 @@ class AssignmentServices extends Services {
     print('Upload Assignmnet body : ' + body.toString());
 
     final response =
-        await http.post(addAssignmentUrl, body: body, headers: headers);
+        await http.post(addAssignmentUrl as Uri, body: body, headers: headers);
 
     if (response.statusCode == 200) {
       print("Assignment added Succesfully");
@@ -54,6 +55,7 @@ class AssignmentServices extends Services {
     }
   }
 
+  // ignore: non_constant_identifier_names
   getAssignments(String stdDiv_Global) async {
     // await getSchoolCode();
 

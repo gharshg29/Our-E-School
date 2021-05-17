@@ -28,14 +28,14 @@ class _LoginPageState extends State<LoginPage> {
     if (emailController.text == null ||
         passwordController.text == null ||
         schoolNameController.text == null) {
-      _scaffoldKey.currentState
-          .showSnackBar(ksnackBar(context, 'Please enter details properly'));
+      ScaffoldMessenger.of(context)
+          .showSnackBar((ksnackBar(context, 'Please enter details properly')));
     } else {
       if (emailController.text.trim().isEmpty ||
           passwordController.text.trim().isEmpty ||
           schoolNameController.text.trim().isEmpty) {
-        _scaffoldKey.currentState
-            .showSnackBar(ksnackBar(context, 'Please enter details properly'));
+        ScaffoldMessenger.of(context).showSnackBar(
+            (ksnackBar(context, 'Please enter details properly')));
       } else {
         bool response = await model.checkUserDetails(
           email: emailController.text,
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
           // _scaffoldKey.currentState
           //   .showSnackBar(ksnackBar(context, 'something went wrong...'));
         }
-        _scaffoldKey.currentState
+        ScaffoldMessenger.of(context)
             .showSnackBar(ksnackBar(context, model.currentLoggingStatus));
       }
     }
@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
       builder: (context, model, child) {
         return Scaffold(
           key: _scaffoldKey,
-          resizeToAvoidBottomPadding: false,
+          resizeToAvoidBottomInset: false,
           appBar: TopBar(
             title: string.login,
             child: kBackBtn,
@@ -111,7 +111,8 @@ class _LoginPageState extends State<LoginPage> {
                         // CustomLoginTypeBtn(),
                         CustomRadioButton(
                           // horizontal: true,
-                          buttonColor: Theme.of(context).canvasColor,
+                          unSelectedColor: Theme.of(context).canvasColor,
+                          // buttonColor: Theme.of(context).canvasColor,
                           buttonLables: ['Student', 'Parent/Teacher'],
                           buttonValues: [UserType.STUDENT, UserType.TEACHER],
                           radioButtonValue: (value) {

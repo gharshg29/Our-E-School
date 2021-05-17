@@ -77,8 +77,12 @@ class _ProfilePageState extends State<ProfilePage> {
         _mobileNo.isEmpty ||
         _standard.isEmpty ||
         _enrollNo.isEmpty) {
-      _scaffoldKey.currentState.showSnackBar(ksnackBar(
-          context, 'You Need to fill all the details and a profile Photo'));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text(
+              'AYou Need to fill all the details and a profile Photo'),
+        ),
+      );
     } else {
       if (model.state == ViewState.Idle) {
         res = await model.setUserProfileData(
@@ -307,6 +311,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               textInputType: TextInputType.number,
                               hintText: string.your_parents,
                               labelText: string.mobile_no,
+                              // ignore: non_constant_identifier_names
                               onChanged: (mobile_no) {
                                 _mobileNo = mobile_no;
                               },

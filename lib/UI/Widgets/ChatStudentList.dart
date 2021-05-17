@@ -26,6 +26,7 @@ class _ChatStudentListWidgetState extends State<ChatStudentListWidget> {
     }
   }
 
+  // ignore: deprecated_member_use
   Color color(var context) => Theme.of(context).textTheme.body1.color;
 
   @override

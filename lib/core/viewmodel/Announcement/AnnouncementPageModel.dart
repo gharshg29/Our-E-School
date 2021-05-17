@@ -4,7 +4,7 @@ import 'package:ourESchool/core/services/AnnouncementServices.dart';
 import 'package:ourESchool/core/viewmodel/BaseModel.dart';
 import 'package:ourESchool/locator.dart';
 
-class AnnouncementPageModel extends BaseModel { 
+class AnnouncementPageModel extends BaseModel {
   AnnouncementServices _announcementServices = locator<AnnouncementServices>();
 
   AnnouncementPageModel();
@@ -12,12 +12,14 @@ class AnnouncementPageModel extends BaseModel {
   List<DocumentSnapshot> get postSnapshotList =>
       _announcementServices.postDocumentSnapshots;
 
+  // ignore: non_constant_identifier_names
   getAnnouncements(String stdDiv_Global) async {
     setState(ViewState.Busy);
     await _announcementServices.getAnnouncements(stdDiv_Global);
     setState(ViewState.Idle);
   }
 
+  // ignore: non_constant_identifier_names
   onRefresh(String stdDiv_Global) async {
     _announcementServices.postDocumentSnapshots.clear();
     _announcementServices.lastPostSnapshot = null;

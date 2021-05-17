@@ -21,6 +21,7 @@ class _AssignmentBottomSheetState extends State<AssignmentBottomSheet> {
   TextEditingController _fileNamecontroller = TextEditingController();
 
   String _fileName;
+  // ignore: avoid_init_to_null
   String _path = null;
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -52,9 +53,15 @@ class _AssignmentBottomSheetState extends State<AssignmentBottomSheet> {
 
       Navigator.pop(context);
     } else {
-      _scaffoldKey.currentState.showSnackBar(
-        ksnackBar(context, 'All the fields are mandatory...'),
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('All the fields are mandatory...'),
+        ),
       );
+
+      // _scaffoldKey.currentState.showSnackBar(
+      //   ksnackBar(context, 'All the fields are mandatory...'),
+      // );
     }
   }
 

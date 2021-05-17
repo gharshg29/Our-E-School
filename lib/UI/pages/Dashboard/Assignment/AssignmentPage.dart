@@ -21,6 +21,7 @@ class _AssignmentsPageState extends State<AssignmentsPage> {
   RandomColor _randomColor = RandomColor();
   ScrollController controller;
   AssignmentPageModel model;
+  // ignore: non_constant_identifier_names
   String stdDiv_Global;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   bool isLast = false;

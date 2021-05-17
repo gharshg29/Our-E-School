@@ -32,7 +32,7 @@ class _AssignmentDetailBottomSheetState
                 kopenPage(
                   context,
                   PDFOpener(
-                    url: widget.assignment.url,
+                    url: widget.assignment.url as Uri,
                     title: widget.assignment.title,
                   ),
                 );

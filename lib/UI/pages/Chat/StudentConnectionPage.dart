@@ -32,6 +32,7 @@ class _StudentConnectionPageState extends State<StudentConnectionPage> {
     setState(() {});
     await widget.model.getParents(widget.documentSnapshot);
     parent =
+        // ignore: await_only_futures
         await widget.model.studentsParentListMap[widget.documentSnapshot.id];
     isLoading = false;
     setState(() {});
@@ -148,7 +149,7 @@ class _StudentConnectionPageState extends State<StudentConnectionPage> {
                                         ),
                                       ),
                                       Container(
-                                        child: FlatButton(
+                                        child: TextButton(
                                           child: Text(
                                             'Chat',
                                             style: ksubtitleStyle.copyWith(

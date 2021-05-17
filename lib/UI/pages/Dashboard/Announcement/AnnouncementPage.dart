@@ -23,6 +23,7 @@ class _AnnouncementPageState extends State<AnnouncementPage>
 
   ScrollController controller;
   AnnouncementPageModel model = AnnouncementPageModel();
+  // ignore: non_constant_identifier_names
   String stdDiv_Global = 'Global';
   final scaffoldKey = GlobalKey<ScaffoldState>();
   bool isLast = false;
@@ -57,6 +58,7 @@ class _AnnouncementPageState extends State<AnnouncementPage>
   }
 
   @override
+  // ignore: must_call_super
   Widget build(BuildContext context) {
     var userType = Provider.of<UserType>(context, listen: false);
     AppUser currentUser = Provider.of<AppUser>(context, listen: false);
@@ -272,7 +274,7 @@ class _AnnouncementPageState extends State<AnnouncementPage>
           actions: <Widget>[
             Row(
               children: <Widget>[
-                FlatButton(
+                TextButton(
                   child: Text(string.cancel),
                   onPressed: () {
                     Navigator.pop(context);
@@ -281,7 +283,7 @@ class _AnnouncementPageState extends State<AnnouncementPage>
                 SizedBox(
                   width: 10,
                 ),
-                FlatButton(
+                TextButton(
                   child: Text('Global'.toUpperCase()),
                   onPressed: () async {
                     setState(() {
@@ -294,7 +296,7 @@ class _AnnouncementPageState extends State<AnnouncementPage>
                 SizedBox(
                   width: 10,
                 ),
-                FlatButton(
+                TextButton(
                   child: Text(string.filter),
                   onPressed: () async {
                     setState(() {

@@ -10,6 +10,7 @@ import 'package:path/path.dart' as p;
 
 class AnnouncementServices extends Services {
   StorageServices _storageServices = locator<StorageServices>();
+  // ignore: avoid_init_to_null
   DocumentSnapshot lastPostSnapshot = null;
   List<DocumentSnapshot> postDocumentSnapshots = List.empty(growable: true);
 
@@ -24,6 +25,7 @@ class AnnouncementServices extends Services {
   }
 
   getAnnouncements(
+    // ignore: non_constant_identifier_names
     String stdDiv_Global,
   ) async {
     // List<DocumentSnapshot> _data = new List<DocumentSnapshot>();
@@ -83,8 +85,8 @@ class AnnouncementServices extends Services {
 
     print(body.toString());
 
-    final response =
-        await http.post(postAnnouncemnetUrl, body: body, headers: headers);
+    final response = await http.post(postAnnouncemnetUrl as Uri,
+        body: body, headers: headers);
 
     if (response.statusCode == 200) {
       print("Post posted Succesfully");

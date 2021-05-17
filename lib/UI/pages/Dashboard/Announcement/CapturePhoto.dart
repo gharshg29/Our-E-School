@@ -141,6 +141,7 @@ class _CapturePhotoState extends State<CapturePhoto>
             onPressed: () {
               if (controller.description != cameraDescription) {
                 controller != null && controller.value.isRecordingVideo
+                    // ignore: unnecessary_statements
                     ? null
                     : onNewCameraSelected(cameraDescription);
               }
@@ -159,7 +160,12 @@ class _CapturePhotoState extends State<CapturePhoto>
   String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
 
   void showInSnackBar(String message) {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
+    );
+    // _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(message)));
   }
 
   void onNewCameraSelected(CameraDescription cameraDescription) async {

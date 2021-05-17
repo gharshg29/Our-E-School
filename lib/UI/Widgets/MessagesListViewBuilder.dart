@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 
 // List<String> messageDates = [];
 
+// ignore: must_be_immutable
 class MessagesListViewBuilder extends StatelessWidget {
   final List<Message> messagesList;
   final ScrollController scrollController;

@@ -90,7 +90,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           _emailController.text.trim().contains('.')) {
                         AuthErrors authError = await _authService.passwordReset(
                             _emailController.text.trim().toString());
-                        scaffoldKey.currentState.showSnackBar(
+
+                        ScaffoldMessenger.of(context).showSnackBar(
                           ksnackBar(
                             context,
                             AuthErrorsHelper.getValue(authError),

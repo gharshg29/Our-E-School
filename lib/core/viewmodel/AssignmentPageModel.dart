@@ -10,6 +10,7 @@ class AssignmentPageModel extends BaseModel {
     print('Assignment Page Model Created');
   }
 
+  // ignore: non_constant_identifier_names
   getAssignments(String stdDiv_Global) async {
     setState(ViewState.Busy);
     await _assignmentServices.getAssignments(stdDiv_Global);
@@ -23,6 +24,7 @@ class AssignmentPageModel extends BaseModel {
     setState(ViewState.Idle);
   }
 
+  // ignore: non_constant_identifier_names
   onRefresh(String stdDiv_Global) async {
     await getAssignments(stdDiv_Global);
   }

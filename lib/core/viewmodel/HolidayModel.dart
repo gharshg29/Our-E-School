@@ -100,7 +100,7 @@ class HolidayModel extends BaseModel {
     monthToColorMap.forEach((month, color) {
       int monthPosition = monthToColorMap.keys.toList().indexOf(month) + 1;
 
-      List<Holiday> monthHolidaysList = List();
+      List<Holiday> monthHolidaysList = [];
       holidays.forEach((holiday) {
         if (holiday.date.datetime.month == monthPosition) {
           monthHolidaysList.add(holiday);

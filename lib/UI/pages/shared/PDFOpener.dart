@@ -3,12 +3,13 @@ import 'dart:io';
 import 'package:ourESchool/UI/Utility/constants.dart';
 import 'package:ourESchool/UI/Widgets/TopBar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_plugin_pdf_viewer/flutter_plugin_pdf_viewer.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+// import 'package:flutter_plugin_pdf_viewer/flutter_plugin_pdf_viewer.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
 class PDFOpener extends StatefulWidget {
-  final String url;
+  final Uri url;
   final String title;
 
   PDFOpener({@required this.url, @required this.title});
@@ -18,12 +19,15 @@ class PDFOpener extends StatefulWidget {
 }
 
 class _PDFOpenerState extends State<PDFOpener> {
-  PDFDocument doc;
+  SfPdfViewer doc;
+  // PDFDocument doc;
 
+  // ignore: unused_field
   bool _isLoading = true;
 
   loadPDF() async {
-    doc = await PDFDocument.fromAsset((await getFileFromUrl(widget.url)).path);
+    // ignore: await_only_futures
+    doc = await SfPdfViewer.asset((await getFileFromUrl(widget.url)).path);
     if (mounted)
       setState(() {
         _isLoading = false;
@@ -36,7 +40,7 @@ class _PDFOpenerState extends State<PDFOpener> {
     loadPDF();
   }
 
-  Future<File> getFileFromUrl(String url) async {
+  Future<File> getFileFromUrl(Uri url) async {
     try {
       var data = await http.get(url);
       var bytes = data.bodyBytes;
@@ -61,10 +65,11 @@ class _PDFOpenerState extends State<PDFOpener> {
         },
         title: widget.title ?? 'PDF',
       ),
+      // body: null,
       body: Center(
         child: _isLoading
             ? Center(child: CircularProgressIndicator())
-            : PDFViewer(document: doc),
+            : SfPdfViewer.network(doc.toString()),
       ),
     );
   }

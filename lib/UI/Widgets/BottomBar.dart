@@ -7,6 +7,7 @@ const double _kActiveFontSize = 14.0;
 const double _kBottomMargin = 10.0;
 enum BubbleBottomBarFabLocation { end, center }
 
+// ignore: must_be_immutable
 class BubbleBottomBar extends StatefulWidget {
   BubbleBottomBar(
       {Key key,
@@ -87,7 +88,7 @@ class _BottomNavigationTile extends StatelessWidget {
     return Expanded(
       flex: size,
       child: SafeArea(
-              child: Semantics(
+        child: Semantics(
           container: true,
           header: true,
           selected: selected,
@@ -95,13 +96,15 @@ class _BottomNavigationTile extends StatelessWidget {
             children: <Widget>[
               InkResponse(
                 borderRadius: BorderRadius.horizontal(
-                  // right: Radius.circular(50),
-                  // left: Radius.circular(50),
-                ),
+                    // right: Radius.circular(50),
+                    // left: Radius.circular(50),
+                    ),
                 containedInkWell: true,
                 onTap: onTap,
                 splashColor: ink
-                    ? inkColor != null ? inkColor : Theme.of(context).splashColor
+                    ? inkColor != null
+                        ? inkColor
+                        : Theme.of(context).splashColor
                     : Colors.transparent,
                 highlightColor: Colors.transparent,
                 child: Container(
@@ -248,8 +251,6 @@ class _BottomNavigationBarState extends State<BubbleBottomBar>
         : Tween<double>(begin: 1.15, end: 1.75);
   }
 
-  
-
 //  Animatable<double> _flexTween = widget.hasNotch ? Tween<double>(begin: 1.15, end: 2.0) : Tween<double>(begin: 1.15, end: 1.75);
 
   void _resetState() {
@@ -283,7 +284,6 @@ class _BottomNavigationBarState extends State<BubbleBottomBar>
   void _rebuild() {
     setState(() {});
   }
-
 
   @override
   void dispose() {

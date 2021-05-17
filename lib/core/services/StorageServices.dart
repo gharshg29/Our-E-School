@@ -28,6 +28,7 @@ class StorageServices extends Services {
           ),
         );
 
+    // ignore: await_only_futures
     final TaskSnapshot downloadUrl = await uploadTask.snapshot;
     final String profileUrl = await downloadUrl.ref.getDownloadURL();
 
@@ -53,6 +54,7 @@ class StorageServices extends Services {
           ),
         );
 
+    // ignore: await_only_futures
     final TaskSnapshot downloadUrl = await uploadTask.snapshot;
     final String postmageUrl = await downloadUrl.ref.getDownloadURL();
 
@@ -78,6 +80,7 @@ class StorageServices extends Services {
           ),
         );
 
+    // ignore: await_only_futures
     final TaskSnapshot downloadUrl = await uploadTask.snapshot;
     final String postmageUrl = await downloadUrl.ref.getDownloadURL();
 

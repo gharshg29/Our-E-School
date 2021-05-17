@@ -36,7 +36,7 @@ class _HolidayPageState extends State<HolidayPage> {
         onModelReady: (model) => model.getHolidays(),
         builder: (context, model, child) {
           return Scaffold(
-            resizeToAvoidBottomPadding: false,
+            resizeToAvoidBottomInset: false,
             appBar: TopBar(
               onTitleTapped: () {
                 model.refreshHolidays();
@@ -99,7 +99,7 @@ class HomeTab extends StatelessWidget {
               Text(
                 'Select Country',
                 style: Theme.of(context).textTheme.caption.copyWith(
-                    color: Theme.of(context).textTheme.display2.color),
+                    color: Theme.of(context).textTheme.headline3.color),
               ),
             ],
           ),
@@ -155,7 +155,7 @@ class MonthCardsState extends State<MonthCards> {
         for (var holiday in holidayList) {
           if (holidayDates.isEmpty) {
             holidayDates.add(holiday.date.datetime.day);
-          } else if(!holidayDates.contains(holiday.date.datetime.day)) {
+          } else if (!holidayDates.contains(holiday.date.datetime.day)) {
             holidayDates.add(holiday.date.datetime.day);
           }
         }
@@ -283,10 +283,10 @@ class MonthCardsState extends State<MonthCards> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => HolidayDetailsPage(
-                                      monthIndex: monthIndex,
-                                      listOfHolidayList: listOfHolidayLists,
-                                      countryName: widget.countryName,
-                                    ),
+                                  monthIndex: monthIndex,
+                                  listOfHolidayList: listOfHolidayLists,
+                                  countryName: widget.countryName,
+                                ),
                               ),
                             );
                           }
@@ -380,7 +380,7 @@ class CountryTitle extends StatelessWidget {
                         textAlign: TextAlign.center,
                         text: TextSpan(
                           text: model.currentSelectedCountryName,
-                          style: Theme.of(context).textTheme.headline.copyWith(
+                          style: Theme.of(context).textTheme.headline5.copyWith(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 40,
                               ),

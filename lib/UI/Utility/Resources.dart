@@ -1,3 +1,4 @@
+// ignore: camel_case_types
 class string {
   //WelcolcomePage
 
@@ -176,6 +177,7 @@ Check School posts to stay updated with school news.''';
   static const offers = 'Offers';
 }
 
+// ignore: camel_case_types
 class assetsString {
   static const no_image_available = 'assets/no_image_available.png';
 

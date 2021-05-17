@@ -50,57 +50,59 @@ class _SelectionDialogState extends State<SelectionDialog> {
                   ..addAll(widget.favoriteElements
                       .map(
                         (f) => new SimpleDialogOption(
-                              child: Flex(
-                                direction: Axis.horizontal,
-                                children: <Widget>[
-                                  Flexible(
-                                    fit: FlexFit.tight,
-                                    child: new Text(
-                                        widget.showCountryOnly
-                                            ? f.toCountryString()
-                                            : f.toLongString(),
-                                        textAlign: TextAlign.center,
-                                        overflow: TextOverflow.fade,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline
-                                            .copyWith(fontSize: 14.0)),
-                                  ),
-                                ],
+                          child: Flex(
+                            direction: Axis.horizontal,
+                            children: <Widget>[
+                              Flexible(
+                                fit: FlexFit.tight,
+                                child: new Text(
+                                    widget.showCountryOnly
+                                        ? f.toCountryString()
+                                        : f.toLongString(),
+                                    textAlign: TextAlign.center,
+                                    overflow: TextOverflow.fade,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        // ignore: deprecated_member_use
+                                        .headline
+                                        .copyWith(fontSize: 14.0)),
                               ),
-                              onPressed: () {
-                                _selectItem(f);
-                              },
-                            ),
+                            ],
+                          ),
+                          onPressed: () {
+                            _selectItem(f);
+                          },
+                        ),
                       )
                       .toList())
                   ..add(new Divider())),
       ]..addAll(showedElements
           .map(
             (e) => new SimpleDialogOption(
-                  key: Key(e.toLongString()),
-                  child: Flex(
-                    direction: Axis.horizontal,
-                    children: <Widget>[
-                      Flexible(
-                        fit: FlexFit.tight,
-                        child: Text(
-                            widget.showCountryOnly
-                                ? e.toCountryString()
-                                : e.toLongString(),
-                            textAlign: TextAlign.center,
-                            overflow: TextOverflow.fade,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline
-                                .copyWith(fontSize: 16.0)),
-                      ),
-                    ],
+              key: Key(e.toLongString()),
+              child: Flex(
+                direction: Axis.horizontal,
+                children: <Widget>[
+                  Flexible(
+                    fit: FlexFit.tight,
+                    child: Text(
+                        widget.showCountryOnly
+                            ? e.toCountryString()
+                            : e.toLongString(),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.fade,
+                        style: Theme.of(context)
+                            .textTheme
+                            // ignore: deprecated_member_use
+                            .headline
+                            .copyWith(fontSize: 16.0)),
                   ),
-                  onPressed: () {
-                    _selectItem(e);
-                  },
-                ),
+                ],
+              ),
+              onPressed: () {
+                _selectItem(e);
+              },
+            ),
           )
           .toList()));
 

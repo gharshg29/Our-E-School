@@ -156,7 +156,7 @@ class _StudentsTimeTableState extends State<StudentsTimeTable> {
             height: 5,
           ),
           edit
-              ? FlatButton(
+              ? TextButton(
                   onPressed: () {},
                   child: Text(
                     'Save',

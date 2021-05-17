@@ -1,4 +1,4 @@
-import 'dart:collection';
+// import 'dart:collection';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AppUser {
@@ -30,6 +30,7 @@ class AppUser {
       this.id = '',
       this.enrollNo = '',
       this.firebaseUuid = '',
+      // ignore: avoid_init_to_null
       this.connection = null,
       this.displayName = '',
       this.standard = '',

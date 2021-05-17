@@ -88,8 +88,9 @@ class ChatServices extends Services {
 
   Future<List<AppUser>> getParents(DocumentSnapshot documentSnapshot) async {
     List<AppUser> parents = [];
-
-    for (int index = 1; index < documentSnapshot.data().length; index++) {
+    // for (int index = 1; index < documentSnapshot.data().size; index++) {
+    for (int index = 1; index < documentSnapshot.data(); index++) {
+      // ignore: await_only_futures
       await parents.add(await _profileServices.getUserDataFromReference(
           documentSnapshot[index.toString()] as DocumentReference));
     }

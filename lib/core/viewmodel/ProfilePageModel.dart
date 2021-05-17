@@ -74,6 +74,7 @@ class ProfilePageModel extends BaseModel {
   }
 
   @override
+  // ignore: must_call_super
   void dispose() {
     if (true) {}
   }

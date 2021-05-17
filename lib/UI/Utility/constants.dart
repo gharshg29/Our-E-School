@@ -95,7 +95,7 @@ kopenPageBottom(BuildContext context, Widget page) {
 Future openFileExplorer(
     FileType _pickingType, bool mounted, BuildContext context,
     {String ext}) async {
-  String _path = null;
+  String _path;
   if (_pickingType == FileType.image) {
     if (ext == null) {
       File file = await CompressImage.takeCompressedPicture(context);

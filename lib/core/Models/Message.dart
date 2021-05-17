@@ -6,8 +6,10 @@ class Message {
   String message;
   Timestamp timeStamp;
   String id;
+  // ignore: non_constant_identifier_names
   String for_;
 
+  // ignore: non_constant_identifier_names
   Message({this.to, this.from, this.message, this.timeStamp, this.for_});
 
   Message.fromSnapShot(DocumentSnapshot snapshot) {

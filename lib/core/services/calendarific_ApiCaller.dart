@@ -10,7 +10,8 @@ class CalendarificApiCall {
 
   Future<HolidayData> getHolidays(String countryCode) async {
     final response = await http.get(
-        'https://calendarific.com/api/v2/holidays?country=$countryCode&year=$currentYear&api_key=$apiKey');
+        'https://calendarific.com/api/v2/holidays?country=$countryCode&year=$currentYear&api_key=$apiKey'
+            as Uri);
     if (response.statusCode == 200) {
       final jsonData = await json.decode(response.body);
       return HolidayData.fromJson(jsonData);

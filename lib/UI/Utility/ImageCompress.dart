@@ -8,7 +8,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart' show getTemporaryDirectory;
 
 Future<File> takeCompressedPicture(BuildContext context) async {
-  var _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery);
+  // ignore: await_only_futures
+  var _imageFile = await ImagePicker().getImage(source: ImageSource.gallery);
   if (_imageFile == null) {
     return null;
   }
@@ -18,7 +19,7 @@ Future<File> takeCompressedPicture(BuildContext context) async {
   final tempDir = await getTemporaryDirectory();
   final rand = Math.Random().nextInt(10000);
   _CompressImage compressObject =
-      _CompressImage(_imageFile, tempDir.path, rand);
+      _CompressImage(_imageFile as File, tempDir.path, rand);
   String filePath = await _compressImage(compressObject);
   print('new path: ' + filePath);
   File file = File(filePath);
@@ -34,8 +35,6 @@ Future<String> _compressImage(_CompressImage object) async {
 
 String _decodeImage(_CompressImage object) {
   Im.Image image = Im.decodeImage(object.imageFile.readAsBytesSync());
-
-  
 
   // int maxHeight = 800;
   // int maxWidth = 800;
